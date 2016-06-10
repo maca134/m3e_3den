@@ -14,15 +14,16 @@ private _output = [
 		(_x get3DENAttribute 'enableSimulation') select 0,
 		(_x get3DENAttribute 'allowDamage') select 0
 	];
-	_output pushBack format['%1%2%3', '	', str _row, if (_forEachIndex < (count _objects - 1)) then {','} else {''}];
+	_preciserow = _row call M3E_fnc_PrecisePositions;
+	_output pushBack format['%1%2%3', '	', _preciserow, if (_forEachIndex < (count _objects - 1)) then {','} else {''}];
 } forEach _objects;
 
 _output append [
 	'];',
 	'{',
 	'	private _object = (_x select 0) createVehicle [0,0,0];',
-	'	_object setPosASL (_x select 1);',
 	'	_object setVectorDirAndUp (_x select 2);',
+	'	_object setPosASL (_x select 1);',
 	'	_object enableSimulationGlobal ((_x select 3) select 0);',
 	'	_object allowDamage ((_x select 3) select 1);',
 	'} forEach _objects;'

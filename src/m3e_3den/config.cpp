@@ -27,7 +27,7 @@ class CfgFunctions
 			class saveRelative {};
 			class saveAll {};
 			class saveTraders {};
-
+			class PrecisePositions {};
 			class getObjects {};
 			class getTraders {};
 			class getRelativeObjects {};

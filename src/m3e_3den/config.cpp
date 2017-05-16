@@ -24,6 +24,8 @@ class CfgFunctions
 			class getAllVehicles {};
 			class loadObjectTree {};
 			class saveObjects {};
+			class saveMission {};
+			class saveMissionStatic {};
 			class saveRelative {};
 			class saveAll {};
 			class saveTraders {};
@@ -31,6 +33,8 @@ class CfgFunctions
 			class getObjects {};
 			class getTraders {};
 			class getRelativeObjects {};
+			class getMissionObjects {};
+			class getMissionStaticObjects {};
 		};
 	};
 
@@ -142,7 +146,7 @@ class display3DEN
 				class M3Editor
 				{
 					text = "M3Editor";
-					items[] = {"SaveObjects", "SaveTraders", "SaveAll", "Separator", "SaveRelative"};
+					items[] = {"SaveObjects", "SaveTraders", "SaveAll", "Separator", "SaveMission", "SaveMissionStatic",  "Separator", "SaveRelative"};
 				};
 				class SaveObjects
 				{
@@ -158,6 +162,16 @@ class display3DEN
 				{
 					text = "Export All";
 					action = "call M3E_fnc_saveAll";
+				};
+				class SaveMission 
+				{
+					text = "Export Objects for a3_dms Bandit Mission";
+					action = "call M3E_fnc_saveMission";
+				};
+				class SaveMissionStatic 
+				{
+					text = "Export Objects for a3_dms Static Mission";
+					action = "call M3E_fnc_saveMissionStatic";
 				};
 				class SaveRelative 
 				{
